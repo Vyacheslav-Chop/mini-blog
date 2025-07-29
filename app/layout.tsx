@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       "Discover inspiring stories, honest reflections, and fresh insights on Mini Blog — your space for meaningful content.",
     siteName: "Mini Blog",
-    url: "",
+    url: "https://mini-blog-ochre-eight.vercel.app/",
     images: [
       {
         url: "/mini-blog-page.avif",
