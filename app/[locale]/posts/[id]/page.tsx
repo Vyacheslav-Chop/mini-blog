@@ -18,7 +18,7 @@ export const generateStaticParams = async () => {
 };
 
 type PostDetailsProps = {
-  params: { id: string };
+  params: { locale: string; id: string };
 };
 
 export const generateMetadata = async ({ params }: PostDetailsProps) => {
