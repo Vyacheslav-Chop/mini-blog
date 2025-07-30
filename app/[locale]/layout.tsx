@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
@@ -8,34 +7,39 @@ import { notFound } from "next/navigation";
 
 import "modern-normalize";
 import "./globals.css";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Mini Blog — Welcome to Our Space",
-  description:
-    "Welcome to Mini Blog — your go-to place for thoughtful reflections, inspiring stories, and fresh perspectives.",
-  openGraph: {
-    title: "Mini Blog — Dive into Stories That Matter",
-    description:
-      "Discover inspiring stories, honest reflections, and fresh insights on Mini Blog — your space for meaningful content.",
-    siteName: "Mini Blog",
-    url: "https://mini-blog-ochre-eight.vercel.app/",
-    images: [
-      {
-        url: "/mini-blog-page.avif",
-        width: 1200,
-        height: 630,
-        alt: "Mini Blog — Inspiring Stories & Fresh Perspectives",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Mini Blog — Dive into Stories That Matter",
-    description:
-      "Discover inspiring stories, honest reflections, and fresh insights on Mini Blog — your space for meaningful content.",
-    images: ["/mini-blog-page.avif"],
-  },
+type MetaProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export const generateMetadata = async ({ params }: MetaProps) => {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "LayoutMeta" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      title: t("OG.title"),
+      description: t("OG.description"),
+      siteName: t("OG.siteName"),
+      url: "https://mini-blog-ochre-eight.vercel.app/",
+      images: [
+        {
+          url: "/mini-blog-page.avif",
+          width: 1200,
+          height: 630,
+          alt: t("OG.image.alt"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("OG.title"),
+      description: t("OG.description"),
+      images: ["/mini-blog-page.avif"],
+    },
+  };
 };
 
 export default async function RootLayout({

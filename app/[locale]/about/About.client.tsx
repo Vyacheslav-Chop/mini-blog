@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import css from "./AboutClient.module.css";
+import css from "./About.module.css";
 
 const AboutClient = () => {
   const t = useTranslations("About");

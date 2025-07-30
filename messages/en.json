@@ -31,5 +31,31 @@
 
   "PostDetails": {
     "back": "Go Back"
+  },
+
+  "AboutMeta": {
+    "title": "Mini Blog — Sharing Knowledge and Inspiration",
+    "description": "A mini blog where we share insights, ideas, and inspiration to make the internet a warmer, more thoughtful place.",
+    "OG": {
+      "title": "Mini Blog — Your Source of Knowledge and Inspiration",
+      "description": "Discover insightful articles, fresh ideas, and inspiring stories that make the web a friendlier and more meaningful space.",
+      "siteName": "Mini blog",
+      "image": {
+        "alt": "Screenshot of the Mini Blog page"
+      }
+    }
+  },
+
+  "LayoutMeta": {
+    "title": "Mini Blog — Welcome to Our Space",
+    "description": "Welcome to Mini Blog — your go-to place for thoughtful reflections, inspiring stories, and fresh perspectives.",
+    "OG": {
+      "title": "Mini Blog — Dive into Stories That Matter",
+      "description": "Discover inspiring stories, honest reflections, and fresh insights on Mini Blog — your space for meaningful content.",
+      "siteName": "Mini blog",
+      "image": {
+        "alt": "Screenshot of the Mini Blog page"
+      }
+    }
   }
 }
