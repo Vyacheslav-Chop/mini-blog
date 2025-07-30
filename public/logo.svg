@@ -1,0 +1,7 @@
+<svg width="140" height="50" viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="140" height="50" rx="10" fill="white" />
+  <g font-family="Arial, sans-serif" font-size="20" font-weight="bold">
+    <text x="15" y="32" fill="#ff7a00">mini</text>
+    <text x="60" y="32" fill="#0077b6">BLOG</text>
+  </g>
+</svg>

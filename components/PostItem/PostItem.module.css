@@ -1,0 +1,62 @@
+.postItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px;
+  border: 1px solid #ff7a00;
+  border-radius: 8px;
+  box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.3),
+    inset -4px -4px 6px rgba(255, 255, 255, 0.8);
+  background-color: #fff7e6;
+}
+
+.postTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 20px;
+}
+
+.postLink {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff7a00;
+  color: #f0f0f0;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 14px;
+  text-align: center;
+}
+
+.postLink:hover,
+.postLink:focus {
+  background-color: #e66900;
+  box-shadow: inset 4px 4px 7px rgba(0, 0, 0, 0.3),
+    inset -4px -4px 7px rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .postItem {
+    flex-basis: calc((100% - 20px) / 2);
+    font-size: 24px;
+    gap: 20px;
+  }
+
+  .postLink {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .postItem {
+    flex-basis: calc((100% - 48px) / 3);
+    font-size: 32px;
+    gap: 24px;
+  }
+}

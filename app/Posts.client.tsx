@@ -5,6 +5,7 @@ import { fetchPosts } from "@/lib/api";
 import { FetchPostsRes } from "@/types/post";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import css from "./page.module.css";
 
 type PostsClientProps = {
   initialData: FetchPostsRes;
@@ -24,16 +25,25 @@ const PostsClient = ({ initialData }: PostsClientProps) => {
   const totalPages = data?.totalPages ?? 1;
 
   return (
-    <div>
-      {totalPages > 1 && (
-        <Pagination
-          totalPages={totalPages}
-          currentPage={currentPage}
-          onPageChange={setCurrentPage}
-        />
-      )}
-      {data && posts.length > 0 && <PostList posts={posts} />}
-    </div>
+    <section className={css.section}>
+      <div className={css.container}>
+        {totalPages > 1 && (
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+          />
+        )}
+        {data && posts.length > 0 && <PostList posts={posts} />}
+        {totalPages > 1 && (
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+          />
+        )}
+      </div>
+    </section>
   );
 };
 

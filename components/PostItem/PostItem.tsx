@@ -1,5 +1,6 @@
 import { Post } from "@/types/post";
 import Link from "next/link";
+import css from "./PostItem.module.css";
 
 type PostItemProps = {
   post: Post;
@@ -7,9 +8,11 @@ type PostItemProps = {
 
 const PostItem = ({ post }: PostItemProps) => {
   return (
-    <li>
-      <h2>{post.title}</h2>
-      <Link href={`/posts/${post.id}`}>View details</Link>
+    <li className={css.postItem}>
+      <h2 className={css.postTitle}>{post.title}</h2>
+      <Link className={css.postLink} href={`/posts/${post.id}`}>
+        View details
+      </Link>
     </li>
   );
 };

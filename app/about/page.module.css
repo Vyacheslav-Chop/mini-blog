@@ -1,11 +1,20 @@
 .section {
   padding: 16px 0;
+  min-height: 100vh;
+  background-image: url("/fon.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
   max-width: 320px;
   padding: 0 16px;
   margin: 0 auto;
+}
+
+.text {
+  margin-bottom: 16px;
 }
 
 @media screen and (min-width: 768px) {
@@ -17,6 +26,10 @@
     max-width: 768px;
     padding: 0 32px;
   }
+
+  .text {
+    margin-bottom: 24px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -27,5 +40,9 @@
   .container {
     max-width: 1440px;
     padding: 0 60px;
+  }
+
+  .text {
+    font-size: 18px;
   }
 }

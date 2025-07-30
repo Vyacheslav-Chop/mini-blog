@@ -1,0 +1,54 @@
+.footer {
+  padding: 10px 0;
+  background-color: #e6e2dc;
+}
+
+.footerWrap {
+  padding: 0 16px;
+  max-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text {
+  font-size: 14px;
+}
+
+.mailLink {
+  display: block;
+  padding: 10px 0;
+  color: #ff7a00;
+  transition: color 0.3s ease;
+  font-size: 16px;
+}
+
+.mailLink:hover,
+.mailLink:focus {
+  color: #0077b6;
+}
+
+@media screen and (min-width: 320px) {
+  .footer {
+    padding: 16px 0;
+  }
+
+  .footerWrap {
+    padding: 0 32px;
+    max-width: 768px;
+    gap: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .footer {
+    padding: 20px 0;
+  }
+
+  .footerWrap {
+    padding: 0 60px;
+    max-width: 1440px;
+    gap: 32px;
+  }
+}

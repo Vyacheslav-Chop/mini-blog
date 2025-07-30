@@ -1,0 +1,49 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navLink {
+  display: block;
+  padding: 10px 0;
+  color: #ff7a00;
+  transition: color 0.3s ease;
+  font-size: 14px;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: #0077b6;
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    gap: 32 px;
+  }
+
+  .navList {
+    gap: 32px;
+  }
+
+  .navLink {
+    padding: 15px 0;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .nav {
+    gap: 40 px;
+  }
+
+  .navList {
+    gap: 40px;
+  }
+}
