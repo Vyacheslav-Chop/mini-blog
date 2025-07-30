@@ -57,5 +57,10 @@
         "alt": "Screenshot of the Mini Blog page"
       }
     }
+  },
+
+  "Error": {
+    "errorPosts": "Could not fetch posts. {message}",
+    "errorPost": "Could not fetch post details. {message}"
   }
 }

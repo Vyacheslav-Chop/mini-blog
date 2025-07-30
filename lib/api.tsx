@@ -1,7 +1,7 @@
 import { FetchPostsRes, Post } from "@/types/post";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
+axios.defaults.baseURL = "https://jsonplaceholder.typicode.com2";
 
 export const fetchPosts = async (page?: number): Promise<FetchPostsRes> => {
   const res = await axios.get<Post[]>("/posts", {

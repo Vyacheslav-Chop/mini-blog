@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import css from "../../error.module.css";
 
 type ErrorProps = {
@@ -6,7 +7,9 @@ type ErrorProps = {
 };
 
 export default function Error({ error }: ErrorProps) {
+  const t = useTranslations("Error");
+
   return (
-    <p className={css.text}>Could not fetch post details. {error.message}</p>
+    <p className={css.text}>{t("errorPost", { message: error.message })} </p>
   );
 }
