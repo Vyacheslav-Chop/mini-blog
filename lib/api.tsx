@@ -3,11 +3,10 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
 
-export const fetchPosts = async (page: number): Promise<FetchPostsRes> => {
+export const fetchPosts = async (page?: number): Promise<FetchPostsRes> => {
   const res = await axios.get<Post[]>("/posts", {
     params: {
-      _page: page,
-      _limit: 12,
+      ...(page ? { _page: page, _limit: 12 } : {}),
     },
   });
 

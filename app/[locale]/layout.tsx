@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
 import "modern-normalize";
 import "./globals.css";
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Mini Blog — Welcome to Our Space",
@@ -34,19 +38,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body>
-        <TanStackProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </TanStackProvider>
+        <NextIntlClientProvider>
+          <TanStackProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </TanStackProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

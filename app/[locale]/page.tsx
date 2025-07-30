@@ -1,6 +1,7 @@
 import { fetchPosts } from "@/lib/api";
 import PostsClient from "./Posts.client";
 
+
 const Home = async () => {
   const responce = await fetchPosts(1);
 

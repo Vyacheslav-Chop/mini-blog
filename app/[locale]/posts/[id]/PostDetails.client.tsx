@@ -5,10 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
 import css from "./PostDetails.module.css";
+import { useTranslations } from "next-intl";
 
 const PostDetailsClient = () => {
   const { id } = useParams();
   const router = useRouter();
+  const t = useTranslations("PostDetails");
 
   const { data: post } = useQuery({
     queryKey: ["post", id],
@@ -16,7 +18,7 @@ const PostDetailsClient = () => {
     refetchOnMount: false,
   });
 
-  const back = () => router.back();
+  const back = () => router.push("/");
   return (
     <section className={css.section}>
       <div className={css.backDrop}>
@@ -25,7 +27,7 @@ const PostDetailsClient = () => {
             <h2 className={css.postTitle}>{post.title}</h2>
             <p className={css.postText}>{post.body}</p>
             <button className={css.button} onClick={back}>
-              Go Back
+              {t("back")}
             </button>
           </div>
         )}

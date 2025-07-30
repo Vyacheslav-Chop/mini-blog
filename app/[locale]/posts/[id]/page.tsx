@@ -1,17 +1,28 @@
-import { fetchPostBiId } from "@/lib/api";
+import { fetchPostBiId, fetchPosts } from "@/lib/api";
 import {
   dehydrate,
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
 import PostDetailsClient from "./PostDetails.client";
+import { routing } from "@/i18n/routing";
+
+export const generateStaticParams = async () => {
+  const { posts } = await fetchPosts();
+  return routing.locales.flatMap((locale) =>
+    posts.map((post) => ({
+      locale,
+      id: String(post.id),
+    }))
+  );
+};
 
 type PostDetailsProps = {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 };
 
 export const generateMetadata = async ({ params }: PostDetailsProps) => {
-  const { id } = await params;
+  const { id } = params;
   const post = await fetchPostBiId(Number(id));
 
   return {
@@ -40,7 +51,7 @@ export const generateMetadata = async ({ params }: PostDetailsProps) => {
 };
 
 const PostDetails = async ({ params }: PostDetailsProps) => {
-  const { id } = await params;
+  const { id } = params;
   const queryClient = new QueryClient();
 
   queryClient.prefetchQuery({

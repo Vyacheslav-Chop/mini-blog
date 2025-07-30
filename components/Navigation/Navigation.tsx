@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import css from "./Navigation.module.css";
+import { useTranslations } from "next-intl";
 
 const Navigation = () => {
+  const t = useTranslations("Header");
   return (
     <nav aria-label="Main navigation" className={css.nav}>
       <Link href="/">
@@ -12,12 +16,12 @@ const Navigation = () => {
       <ul className={css.navList}>
         <li className={css.navIten}>
           <Link className={css.navLink} href="/">
-            Home
+            {t("nav.home")}
           </Link>
         </li>
         <li className={css.navIten}>
           <Link className={css.navLink} href="/about">
-            About
+            {t("nav.about")}
           </Link>
         </li>
       </ul>
