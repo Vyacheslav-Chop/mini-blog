@@ -18,11 +18,11 @@ export const generateStaticParams = async () => {
 };
 
 type PostDetailsProps = {
-  params: { locale: string; id: string };
+  params: Promise<{ locale: string; id: string }>;
 };
 
 export const generateMetadata = async ({ params }: PostDetailsProps) => {
-  const { id } = params;
+  const { id } = await params;
   const post = await fetchPostBiId(Number(id));
 
   return {
@@ -51,7 +51,7 @@ export const generateMetadata = async ({ params }: PostDetailsProps) => {
 };
 
 const PostDetails = async ({ params }: PostDetailsProps) => {
-  const { id } = params;
+  const { id } = await params;
   const queryClient = new QueryClient();
 
   queryClient.prefetchQuery({
